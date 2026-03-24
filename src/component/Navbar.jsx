@@ -16,9 +16,10 @@ function Navbar() {
 
 
 <Routes>
+    <Route path='/' element={<SnacksPage/>} />
  <Route path='StudentForm' element={<StudentForm/>} /> 
 <Route path='StudentPage' element={<StudentPage/>} />
- <Route path='/' element={<SnacksPage/>} /> 
+ <Route path='SnacksPage' element={<SnacksPage/>} /> 
 </Routes>
    
     </>

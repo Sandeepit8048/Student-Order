@@ -4,5 +4,7 @@ import studentReducer from "./studentSlice";
 export const store = configureStore({
   reducer: {
     student: studentReducer,
+    items:studentReducer,
+
   },
 });

@@ -1,13 +1,19 @@
 import React, { useEffect, useState } from "react";
+import { addToCart } from "../redux/studentSlice";
+import { useDispatch } from "react-redux";
 
 function SnacksPage() {
-  const [cartItems, setCartItems] = useState([]); 
-  const [snacks, setSnacks] = useState([]); 
+  const [snacks, setSnacks] = useState([]);
+  
+  const dispatch = useDispatch()
 
-  // Fetch snacks from backend
+  // const selector = useSelector((state)=>state.studentSlice.items)
+
+  // console.log(selector.length);
+
   async function datafetch() {
     try {
-      const res = await fetch("http://localhost:3000/student");
+      const res = await fetch("https://student-order-e089.onrender.com/student");
       const data = await res.json();
       setSnacks(data);
     } catch (error) {
@@ -19,33 +25,10 @@ function SnacksPage() {
     datafetch();
   }, []);
 
-  const addToCart = (snack) => {
-    setCartItems((prev) => [...prev, snack]);
-  };
 
   return (
     <div className="min-h-screen bg-gray-100 p-6">
       <h1 className="text-3xl font-bold mb-6 text-center">Snacks Menu</h1>
-
-      <div className="mb-6">
-        <h2 className="text-xl font-semibold mb-2">Cart ({cartItems.length})</h2>
-        {cartItems.length === 0 ? (
-          <p className="text-gray-500">Your cart is empty.</p>
-        ) : (
-          <div className="space-y-2">
-            {cartItems.map((item, idx) => (
-              <div
-                key={idx}
-                className="flex justify-between items-center bg-white p-2 rounded shadow"
-              >
-                <span>{item.snackname}</span>
-                <span>${item.payableamount}</span>
-              </div>
-            ))}
-          </div>
-        )}
-      </div>
-
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         {snacks.map((item, id) => (
           <div
@@ -58,7 +41,7 @@ function SnacksPage() {
 
             <button
               className="mt-4 w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600 transition"
-              onClick={() => addToCart(item)}>
+              onClick={() => dispatch(addToCart(item))}>
               Add to Cart
             </button>
           </div>

@@ -1,23 +1,22 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { NavLink } from 'react-router-dom'; // better than Link for active styling
+import { NavLink } from 'react-router-dom'; 
 import StudentForm from './StudentForm.jsx';
 import StudentPage from './StudentPage.jsx';
 import SnacksPage from './SnacksPage.jsx';
+import { useSelector } from 'react-redux';
 
 function Navbar() {
+    const Items = useSelector((state) => state.student.items);
   return (
     <div className="min-h-screen bg-gray-100">
-      {/* Navbar */}
       <nav className="bg-white shadow-md p-4 flex justify-center space-x-6 sticky top-0 z-50">
         <NavLink
           to="/"
           className={({ isActive }) =>
             isActive
               ? 'text-blue-600 font-semibold border-b-2 border-blue-600'
-              : 'text-gray-700 hover:text-blue-500'
-          }
-        >
+              : 'text-gray-700 hover:text-blue-500'}>
           Snacks Page
         </NavLink>
 
@@ -26,25 +25,19 @@ function Navbar() {
           className={({ isActive }) =>
             isActive
               ? 'text-blue-600 font-semibold border-b-2 border-blue-600'
-              : 'text-gray-700 hover:text-blue-500'
-          }
-        >
+              : 'text-gray-700 hover:text-blue-500'}>
           Form
         </NavLink>
 
         <NavLink
           to="/StudentPage"
           className={({ isActive }) =>
-            isActive
-              ? 'text-blue-600 font-semibold border-b-2 border-blue-600'
-              : 'text-gray-700 hover:text-blue-500'
-          }
-        >
-          Student Page
+            isActive ? 'text-blue-600 font-semibold border-b-2 border-blue-600': 'text-gray-700 hover:text-blue-500'}>
+          Student Page:({Items.length})
         </NavLink>
       </nav>
 
-      {/* Routes */}
+  
       <div className="p-6">
         <Routes>
           <Route path="/" element={<SnacksPage />} />

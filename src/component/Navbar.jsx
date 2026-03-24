@@ -1,29 +1,60 @@
-import React from 'react'
-import { Route, Routes } from 'react-router'
-import StudentForm from './StudentForm.jsx'
-import StudentPage from './StudentPage.jsx'
-import SnacksPage from './SnacksPage.jsx'
-import { Link } from 'react-router'
+import React from 'react';
+import { Route, Routes } from 'react-router-dom';
+import { NavLink } from 'react-router-dom'; // better than Link for active styling
+import StudentForm from './StudentForm.jsx';
+import StudentPage from './StudentPage.jsx';
+import SnacksPage from './SnacksPage.jsx';
+
 function Navbar() {
   return (
-    <> 
-     <nav>
-      <Link to="/">Snacks-Page</Link> | 
-      <Link to="/StudentForm">Form</Link> | 
-      <Link to="/StudentPage">Student-Page</Link>
-    </nav>
+    <div className="min-h-screen bg-gray-100">
+      {/* Navbar */}
+      <nav className="bg-white shadow-md p-4 flex justify-center space-x-6 sticky top-0 z-50">
+        <NavLink
+          to="/"
+          className={({ isActive }) =>
+            isActive
+              ? 'text-blue-600 font-semibold border-b-2 border-blue-600'
+              : 'text-gray-700 hover:text-blue-500'
+          }
+        >
+          Snacks Page
+        </NavLink>
 
+        <NavLink
+          to="/StudentForm"
+          className={({ isActive }) =>
+            isActive
+              ? 'text-blue-600 font-semibold border-b-2 border-blue-600'
+              : 'text-gray-700 hover:text-blue-500'
+          }
+        >
+          Form
+        </NavLink>
 
+        <NavLink
+          to="/StudentPage"
+          className={({ isActive }) =>
+            isActive
+              ? 'text-blue-600 font-semibold border-b-2 border-blue-600'
+              : 'text-gray-700 hover:text-blue-500'
+          }
+        >
+          Student Page
+        </NavLink>
+      </nav>
 
-<Routes>
-    <Route path='/' element={<SnacksPage/>} />
- <Route path='StudentForm' element={<StudentForm/>} /> 
-<Route path='StudentPage' element={<StudentPage/>} />
- <Route path='SnacksPage' element={<SnacksPage/>} /> 
-</Routes>
-   
-    </>
-  )
+      {/* Routes */}
+      <div className="p-6">
+        <Routes>
+          <Route path="/" element={<SnacksPage />} />
+          <Route path="/StudentForm" element={<StudentForm />} />
+          <Route path="/StudentPage" element={<StudentPage />} />
+          <Route path="/SnacksPage" element={<SnacksPage />} />
+        </Routes>
+      </div>
+    </div>
+  );
 }
 
-export default Navbar
+export default Navbar;

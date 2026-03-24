@@ -5,7 +5,8 @@ const usermodule = new mongoose.Schema({
     prductdetail:String,
     quantityitem:Number,
     snackname:String,
-    payableamount:Number
+    payableamount:Number,
+    image:String
 
 
 });

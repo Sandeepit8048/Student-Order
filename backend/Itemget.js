@@ -1,9 +1,14 @@
 import Express from 'express'
+import cors from "cors";
 import connectDB from './Database/Db_connect.js'
 import userschema from './modul/Cartdetail.js'
 
 connectDB();
 const app = Express();
+
+app.use(cors());
+
+app.use(Express.json());
 
 app.get('/student', async (req, res)=>{
       try{

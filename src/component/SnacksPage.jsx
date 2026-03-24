@@ -7,9 +7,6 @@ function SnacksPage() {
   
   const dispatch = useDispatch()
 
-  // const selector = useSelector((state)=>state.studentSlice.items)
-
-  // console.log(selector.length);
 
   async function datafetch() {
     try {

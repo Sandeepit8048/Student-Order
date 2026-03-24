@@ -21,6 +21,7 @@ function StudentPage() {
               className="flex justify-between items-center bg-white p-3 rounded shadow"
             >
               <span className="font-medium">{item.snackname}</span>
+              <span>{item.prductdetail}</span>
               <span className="text-green-600 font-semibold">
                 ₹{item.payableamount}
               </span>

@@ -1,18 +1,40 @@
-# React + Vite
+# Student Order - React + Redux Toolkit + Node.js + MongoDB
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+# Live Demo
+ | GitHub Repository- https://github.com/Sandeepit8048/Student-Order
+ | live Project - https://student-order-seven.vercel.app/
 
 ## React Compiler
+## Project Overview
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+Student Order is a full-stack web application for students to order snacks online.
+It allows students to register, browse snacks, add items to their cart, and view details of all registered students and their orders.
 
-Note: This will impact Vite dev & build performances.
+Frontend: React + Vite + Tailwind CSS + Bootstrap
+State Management: Redux Toolkit with localStorage
+Backend: Node.js + Express.js
+Database: MongoDB (Hosted on Atlas)
+
+## Features
+Student Registration with unique referral code
+Snacks Menu fetched from backend API
+Add to Cart functionality with Redux Toolkit
+Cart Page displaying selected snacks
+Students Page showing all registered students and their orders
+Responsive design for desktop and mobile
+OTP Input component (future enhancement for verification)
+
+## Backend API
+Built with Node.js, Express.js, and MongoDB
+Stores all snack data and student cart data
+Hosted on Render: https://student-order-e089.onrender.com/student
+Frontend fetches data from this API using fetch()
 
 ## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## run code 
+ npm run dev
+## Backend run 
+nodemon filename.js
+
+ 

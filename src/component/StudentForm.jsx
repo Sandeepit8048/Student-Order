@@ -15,6 +15,11 @@ function StudentForm() {
     id: "",
   });
 
+  // ===== Generate 4-digit referral code =====
+  const generateReferralCode = () => {
+    return Math.floor(1000 + Math.random() * 9000).toString();
+  };
+
   function handleChange(e) {
     const { name, value } = e.target;
     setForm({
@@ -33,10 +38,16 @@ function StudentForm() {
     if (exists) {
       alert("User already exists");
     } else {
+      const referralCode = generateReferralCode(); // generate code
 
-      dispatch(addStudent(form));
-      alert("Submit Successful");
-      navigate("/SnacksPage");
+      const newUser = {
+        ...form,
+        referralCode, // add code to student object
+      };
+
+      dispatch(addStudent(newUser)); // store in Redux + localStorage
+      alert(`Submit Successful\nYour Referral Code: ${referralCode}`);
+      navigate("/SnacksPage"); // navigate to next page
     }
 
     setForm({

@@ -5,6 +5,7 @@ import StudentForm from './StudentForm.jsx';
 import StudentPage from './StudentPage.jsx';
 import SnacksPage from './SnacksPage.jsx';
 import { useSelector } from 'react-redux';
+import Studentspgditail from './Studentspgditail.jsx';
 
 function Navbar() {
     const Items = useSelector((state) => state.student.items);
@@ -30,6 +31,15 @@ function Navbar() {
         </NavLink>
 
         <NavLink
+          to="/Studentspgditail"
+          className={({ isActive }) =>
+            isActive
+              ? 'text-blue-600 font-semibold border-b-2 border-blue-600'
+              : 'text-gray-700 hover:text-blue-500'}>
+          Students-Page
+        </NavLink>
+
+        <NavLink
           to="/StudentPage"
           className={({ isActive }) =>
             isActive ? 'text-blue-600 font-semibold border-b-2 border-blue-600': 'text-gray-700 hover:text-blue-500'}>
@@ -41,6 +51,7 @@ function Navbar() {
       <div className="p-6">
         <Routes>
           <Route path="/" element={<SnacksPage />} />
+          <Route path='/Studentspgditail' element={<Studentspgditail/>}/>
           <Route path="/StudentForm" element={<StudentForm />} />
           <Route path="/StudentPage" element={<StudentPage />} />
           <Route path="/SnacksPage" element={<SnacksPage />} />
